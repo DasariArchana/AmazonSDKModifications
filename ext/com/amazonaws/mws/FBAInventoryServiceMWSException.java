@@ -13,7 +13,7 @@
  * Library Version: 2014-09-30
  * Generated: Mon Mar 21 09:01:27 PDT 2016
  */
-package com.amazonservices.mws.FulfillmentInventory._2010_10_01;
+package com.amazonaws.mws;
 
 import com.amazonservices.mws.FulfillmentInventory._2010_10_01.model.ResponseHeaderMetadata;
 import com.amazonservices.mws.client.MwsException;

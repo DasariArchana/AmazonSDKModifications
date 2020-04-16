@@ -13,7 +13,7 @@
  * Library Version: 2017-03-22
  * Generated: Wed Mar 22 23:24:32 UTC 2017
  */
-package com.amazonservices.mws.products.model;
+package com.amazonaws.mws.model;
 
 import javax.xml.bind.annotation.*;
 
@@ -61,51 +61,8 @@ public class GetMyPriceForASINRequest extends AbstractMwsObject {
     @XmlElement(name="ASINList",required=true)
     private ASINListType asinList;
     
-    @XmlElement(name="ItemCondition",required=true)
+    @XmlElement(name="ItemCondition",required=false)
     private String itemCondition;
-    
-    
-    
-    /**Custom
-     * Get the value of SellerId.
-     *
-     * @return The value of SellerId.
-     */
-    public String getItemCondition() {
-        return itemCondition;
-    }
-
-    /**Custom
-     * Set the value of SellerId.
-     *
-     * @param sellerId
-     *            The new value to set.
-     */
-    public void setItemCondition(String itemCondition) {
-        this.itemCondition = itemCondition;
-    }
-
-    /**Custom
-     * Check to see if SellerId is set.
-     *
-     * @return true if SellerId is set.
-     */
-    public boolean isSetItemCondition() {
-        return itemCondition != null;
-    }
-
-    /**Custom
-     * Set the value of SellerId, return this.
-     *
-     * @param sellerId
-     *             The new value to set.
-     *
-     * @return This instance.
-     */
-    public GetMyPriceForASINRequest withItemCondition(String itemCondition) {
-        this.itemCondition = itemCondition;
-        return this;
-    }
 
     /**
      * Get the value of SellerId.
@@ -271,7 +228,24 @@ public class GetMyPriceForASINRequest extends AbstractMwsObject {
         return this;
     }
 
-    /**
+    public String getItemCondition() {
+		return itemCondition;
+	}
+
+	public void setItemCondition(String itemCondition) {
+		this.itemCondition = itemCondition;
+	}
+	
+	public boolean isSetItemCondition() {
+        return (itemCondition != null || !itemCondition.isEmpty());
+    }
+	
+	public GetMyPriceForASINRequest withItemCondition(String itemCondition) {
+		this.itemCondition = itemCondition;
+        return this;
+    }
+
+	/**
      * Read members from a MwsReader.
      *
      * @param r
@@ -283,6 +257,7 @@ public class GetMyPriceForASINRequest extends AbstractMwsObject {
         mwsAuthToken = r.read("MWSAuthToken", String.class);
         marketplaceId = r.read("MarketplaceId", String.class);
         asinList = r.read("ASINList", ASINListType.class);
+        itemCondition = r.read("ItemCondition", String.class);
     }
 
     /**
@@ -297,6 +272,7 @@ public class GetMyPriceForASINRequest extends AbstractMwsObject {
         w.write("MWSAuthToken", mwsAuthToken);
         w.write("MarketplaceId", marketplaceId);
         w.write("ASINList", asinList);
+        w.write("ItemCondition", itemCondition);
     }
 
     /**
@@ -315,7 +291,13 @@ public class GetMyPriceForASINRequest extends AbstractMwsObject {
         this.sellerId = sellerId;
         this.marketplaceId = marketplaceId;
         this.asinList = asinList;
-    }    
+        
+    } 
+    
+    public GetMyPriceForASINRequest(String sellerId,String marketplaceId,ASINListType asinList, String itemCondition) {
+        this(sellerId, marketplaceId, asinList);
+        this.itemCondition = itemCondition;
+    } 
 
     /** Default constructor. */
     public GetMyPriceForASINRequest() {

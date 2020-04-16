@@ -13,7 +13,7 @@
  * Library Version: 2017-03-22
  * Generated: Wed Mar 22 23:24:32 UTC 2017
  */
-package com.amazonservices.mws.products.model;
+package com.amazonaws.mws.model;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -140,6 +140,14 @@ public class ASINListType extends AbstractMwsObject {
     /** Default constructor. */
     public ASINListType() {
         super();
+    }
+    
+    /**
+     * Value constructor
+     * 
+     */
+    public ASINListType(final List<String> id) {
+        this.asin = id;
     }
 
 }

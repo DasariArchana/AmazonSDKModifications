@@ -13,8 +13,9 @@
  * Library Version: 2017-03-22
  * Generated: Wed Mar 22 23:24:32 UTC 2017
  */
-package com.amazonservices.mws.products;
+package com.amazonaws.mws;
 
+import com.amazonservices.mws.products.MarketplaceWebServiceProductsException;
 import com.amazonservices.mws.products.model.*;
 import com.amazonservices.mws.client.*;
 
@@ -100,6 +101,15 @@ public class MarketplaceWebServiceProductsClient implements MarketplaceWebServic
             new RequestType("GetMatchingProduct", GetMatchingProductResponse.class, servicePath),
             request);
     }
+    
+    /**
+   *Changed the GetMatchingProductRequest to com.amazonaws.mws.model.GetMatchingProductRequest
+   */
+  public GetMatchingProductResponse getMatchingProduct(com.amazonaws.mws.model.GetMatchingProductRequest request) {
+      return connection.call(
+          new RequestType("GetMatchingProduct", GetMatchingProductResponse.class, servicePath),
+          request);
+  }
 
     public GetMatchingProductForIdResponse getMatchingProductForId(GetMatchingProductForIdRequest request) {
         return connection.call(
@@ -114,6 +124,15 @@ public class MarketplaceWebServiceProductsClient implements MarketplaceWebServic
     }
 
     public GetMyPriceForASINResponse getMyPriceForASIN(GetMyPriceForASINRequest request) {
+        return connection.call(
+            new RequestType("GetMyPriceForASIN", GetMyPriceForASINResponse.class, servicePath),
+            request);
+    }
+    
+    /**
+     *Changed the GetMyPriceForASINRequest to com.amazonaws.mws.model.GetMatchingProductRequest
+     */
+    public GetMyPriceForASINResponse getMyPriceForASIN(com.amazonaws.mws.model.GetMyPriceForASINRequest request) {
         return connection.call(
             new RequestType("GetMyPriceForASIN", GetMyPriceForASINResponse.class, servicePath),
             request);

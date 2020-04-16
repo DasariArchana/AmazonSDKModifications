@@ -13,7 +13,7 @@
  * Library Version: 2017-03-22
  * Generated: Wed Mar 22 23:24:32 UTC 2017
  */
-package com.amazonservices.mws.products;
+package com.amazonaws.mws;
 
 import java.util.concurrent.Future;
 import com.amazonservices.mws.products.model.*;

@@ -13,7 +13,7 @@
  * Library Version: 2017-03-22
  * Generated: Wed Mar 22 23:24:32 UTC 2017
  */
-package com.amazonservices.mws.products;
+package com.amazonaws.mws;
 
 import java.net.URI;
 import com.amazonservices.mws.client.MwsConnection;
@@ -38,7 +38,7 @@ public class MarketplaceWebServiceProductsConfig {
      *
      * @return A clone of the configured connection.
      */
-    MwsConnection copyConnection() {
+     MwsConnection copyConnection() {
         return cc.clone();
     }
 

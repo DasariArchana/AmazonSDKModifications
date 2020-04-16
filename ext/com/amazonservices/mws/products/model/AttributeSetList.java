@@ -15,12 +15,20 @@
  */
 package com.amazonservices.mws.products.model;
 
-import java.util.List;
+import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.List;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAnyElement;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
-import com.amazonservices.mws.client.*;
+import com.amazonservices.mws.client.AbstractMwsObject;
+import com.amazonservices.mws.client.MwsReader;
+import com.amazonservices.mws.client.MwsWriter;
 
 /**
  * AttributeSetList complex type.
@@ -41,63 +49,74 @@ import com.amazonservices.mws.client.*;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name="AttributeSetList", propOrder={
-    "any"
+    "ns2:ItemAttributes"
 })
 @XmlRootElement(name = "AttributeSetList")
 public class AttributeSetList extends AbstractMwsObject {
 
-    @XmlAnyElement(lax=true)
-    private List<Object> any;
+	@XmlElement(name="ns2:ItemAttributes")
+    private List<ItemAttributesType> itemAttributes;
+    
+	@XmlElement(name="ns2:lang")
+    private String lang;
 
-    /**
+    public String getLang() {
+		return lang;
+	}
+
+	public void setLang(String lang) {
+		this.lang = lang;
+	}
+
+	/**
      * Get the value of Any.
      *
      * @return The value of Any.
      */
-    public List<Object> getAny() {
-        if (any==null) {
-            any = new ArrayList<Object>();
+    public List<ItemAttributesType> getItemAttributes() {
+        if (itemAttributes==null) {
+            itemAttributes = new ArrayList<ItemAttributesType>();
         }
-        return any;
+        return itemAttributes;
     }
 
     /**
-     * Set the value of Any.
+     * Set the value of ItemAttributesType.
      *
-     * @param any
+     * @param ItemAttributesType
      *            The new value to set.
      */
-    public void setAny(List<Object> any) {
-        this.any = any;
+    public void setItemAttributes(List<ItemAttributesType> ItemAttributesType) {
+        this.itemAttributes = ItemAttributesType;
     }
 
     /**
-     * Clear Any.
+     * Clear ItemAttributesType.
      */
-    public void unsetAny() {
-        this.any = null;
+    public void unsetItemAttributes() {
+        this.itemAttributes = null;
     }
 
     /**
-     * Check to see if Any is set.
+     * Check to see if ItemAttributesType is set.
      *
-     * @return true if Any is set.
+     * @return true if ItemAttributesType is set.
      */
-    public boolean isSetAny() {
-        return any != null && !any.isEmpty();
+    public boolean isSetItemAttributes() {
+        return itemAttributes != null && !itemAttributes.isEmpty();
     }
 
     /**
-     * Add values for Any, return this.
+     * Add values for ItemAttributesType, return this.
      *
-     * @param any
+     * @param itemAttributes
      *             New values to add.
      *
      * @return This instance.
      */
-    public AttributeSetList withAny(Object... values) {
-        List<Object> list = getAny();
-        for (Object value : values) {
+    public AttributeSetList withItemAttributesType(ItemAttributesType... values) {
+        List<ItemAttributesType> list = getItemAttributes();
+        for (ItemAttributesType value : values) {
             list.add(value);
         }
         return this;
@@ -112,7 +131,7 @@ public class AttributeSetList extends AbstractMwsObject {
     @SuppressWarnings("unchecked")
     @Override
     public void readFragmentFrom(MwsReader r) {
-        any = (List<Object>)(Object)r.readAny();
+        itemAttributes = r.readList("ns2:ItemAttributes", ItemAttributesType.class);
     }
 
     /**
@@ -124,7 +143,7 @@ public class AttributeSetList extends AbstractMwsObject {
     @SuppressWarnings("unchecked")
     @Override
     public void writeFragmentTo(MwsWriter w) {
-        w.writeAny((List<org.w3c.dom.Element>)(Object)any);
+        w.writeList("ItemAttributes", itemAttributes);
     }
 
     /**

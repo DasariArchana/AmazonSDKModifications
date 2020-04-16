@@ -225,12 +225,20 @@ public class GetFeedSubmissionResultResponse {
      */
     public String toJSON() {
         StringBuffer json = new StringBuffer();
-        json.append("{\"GetFeedSubmissionResultResponse\" : {");
+       // json.append("{\"GetFeedSubmissionResultResponse\" : {");
+        json.append("{");
         json.append(quoteJSON("@xmlns"));
         json.append(" : ");
         json.append(quoteJSON("http://mws.amazonaws.com/doc/2009-01-01/"));
+        
         boolean first = true;
         json.append(", ");
+        if(isSetGetFeedSubmissionResultResult()) {
+        	json.append("\"GetFeedSubmissionResultResult\" : {");
+        	json.append("\"XMLResponse\" : ");
+            json.append(quoteJSON(getFeedSubmissionResultResult.getMD5Checksum()));
+            json.append("},");
+        }
         if (isSetResponseMetadata()) {
             if (!first) json.append(", ");
             json.append("\"ResponseMetadata\" : {");
@@ -240,8 +248,17 @@ public class GetFeedSubmissionResultResponse {
             json.append("}");
             first = false;
         } 
+        if(isSetResponseHeaderMetadata()) {
+        	if (!first) json.append(", ");
+            json.append("\"ResponseHeaderMetadata\" : {");
+            ResponseHeaderMetadata  responseMetadata = getResponseHeaderMetadata();
+
+            json.append(responseMetadata.toJSONFragment());
+            json.append("}");
+            first = false;
+        }
         json.append("}");
-        json.append("}");
+        //json.append("}");
         return json.toString();
     }
 
